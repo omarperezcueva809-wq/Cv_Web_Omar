@@ -498,12 +498,132 @@ body {
 
 footer { text-align: center; padding: 1.5rem 0 0.5rem; color: var(--text-dim); font-size: 0.8rem; }
 
-@media (max-width: 992px) {
-  .cv-grid { grid-template-columns: 1fr; }
-  .app-wrapper { padding: 1rem; }
+/*responsive-celular  */
+
+/* =========================================
+   DISEÑO RESPONSIVO: TABLET Y CELULAR
+   Añade este bloque al final de tu archivo CSS
+   ========================================= */
+
+/* TABLET (Pantallas hasta 1024px) */
+@media screen and (max-width: 1024px) {
+  .cv-grid {
+    /* Convierte el layout de 2 columnas a 1 columna apilada */
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .app-wrapper {
+    padding: 1rem;
+  }
+
+  .profile-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .top-bar {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.2rem;
+  }
+
+  .actions {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
-@media (max-width: 768px) {
-  .kpi-grid { grid-template-columns: 1fr; }
-  .btn-pulse-toggle { margin-left: 0; width: 100%; justify-content: center; }
+/* CELULAR (Pantallas hasta 768px) */
+@media screen and (max-width: 768px) {
+  .app-wrapper {
+    padding: 0.8rem;
+  }
+
+  .card {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  /* Ajustes de Tipografía y Avatar */
+  .avatar-ring {
+    width: 100px;
+    height: 100px;
+  }
+
+  .name {
+    font-size: 1.2rem;
+  }
+
+  /* Grillas a 1 sola columna en móviles */
+  .kpi-grid, 
+  .projects-grid, 
+  .certs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Botones de filtros ocupando todo el ancho disponible */
+  .filter-buttons {
+    justify-content: center;
+  }
+
+  .filter-btn {
+    flex: 1 1 calc(50% - 0.4rem);
+    text-align: center;
+  }
+
+  /* Controles de gráficos apilados */
+  .chart-header-flex {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .chart-controls {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .btn-chart-style {
+    flex: 1;
+    justify-content: center;
+  }
+
+  /* Altura reducida para gráficos en pantallas pequeñas */
+  .chart-wrapper {
+    height: 250px;
+    padding: 0.5rem;
+  }
+
+  /* Botón de WhatsApp más discreto en móviles */
+  .whatsapp-float {
+    bottom: 15px;
+    right: 15px;
+    width: 45px;
+    height: 45px;
+    font-size: 1.3rem;
+  }
+
+  .modal-content {
+    padding: 1.2rem;
+    width: 95%;
+  }
+}
+
+/* CELULAR PEQUEÑO (Pantallas hasta 480px) */
+@media screen and (max-width: 480px) {
+  .filter-btn {
+    flex: 1 1 100%;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .contact-list li {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.3rem;
+  }
 }
