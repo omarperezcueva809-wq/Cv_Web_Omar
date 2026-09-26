@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Omar Benjamín Perez Cueva - CV Ejecutivo Interactive</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Chart.js para los gráficos dinámicos -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dark-mode">
+
+  <div id="scroll-progress"></div>
+  
+  <!-- CANVASES DE FONDO MESH -->
+  <canvas id="corporate-bg"></canvas>
+
+  <div class="app-wrapper">
+    
+    <!-- BARRA SUPERIOR EMPRESARIAL -->
+    <header class="top-bar">
+      <div class="brand-badge">
+        <span class="pulse-dot"></span>
+        <span data-es="Disponible para Prácticas / Tiempo Parcial" data-en="Available for Internships / Part-Time">Disponible para Prácticas / Tiempo Parcial</span>
+      </div>
+      <div class="actions">
+        <button class="btn btn-lang" id="lang-toggle" onclick="toggleLanguage()">
+          <i class="fa-solid fa-globe"></i> <span id="lang-text">EN</span>
+        </button>
+        <button class="btn btn-theme" id="theme-toggle" onclick="toggleTheme()">
+          <i class="fa-solid fa-sun" id="theme-icon"></i> <span id="theme-text">Modo Claro</span>
+        </button>
+        <button class="btn btn-secondary" onclick="copyContact()">
+          <i class="fa-regular fa-copy"></i> Copiar Email
+        </button>
+        <button class="btn btn-primary" onclick="window.print()">
+          <i class="fa-solid fa-file-pdf"></i> Exportar PDF
+        </button>
+      </div>
+    </header>
+
+    <!-- GRID PRINCIPAL -->
+    <main class="cv-grid">
+      
+      <!-- COLUMNA IZQUIERDA -->
+      <aside class="sidebar">
+        
+        <!-- Tarjeta de Perfil -->
+        <div class="card profile-card">
+          <div class="avatar-ring">
+            <img 
+              src="foto-omar.jpg" 
+              alt="Omar Benjamín Perez Cueva" 
+              class="avatar-img"
+              onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Omar+Perez&background=0ea5e9&color=fff&size=200';"
+            />
+          </div>
+          <h1 class="name">Omar Benjamín<br><span class="highlight-corp">Perez Cueva</span></h1>
+          <div class="role-badge"><i class="fa-solid fa-terminal"></i> Software Engineer & AI Student</div>
+        </div>
+
+        <!-- Contacto Directo -->
+        <div class="card">
+          <h3 class="card-title"><i class="fa-solid fa-id-card-clip"></i> Contacto Directo</h3>
+          
+          <ul class="contact-list">
+            <li>
+              <div class="icon-wrap icon-blue"><i class="fa-solid fa-id-card"></i></div>
+              <div>
+                <small>DNI</small>
+                <p>71167219</p>
+              </div>
+            </li>
+            <li>
+              <div class="icon-wrap icon-green"><i class="fa-solid fa-phone"></i></div>
+              <div>
+                <small data-es="Teléfono" data-en="Phone">Teléfono</small>
+                <p><a href="tel:+51960860791">+51 960 860 791</a></p>
+              </div>
+            </li>
+            <li>
+              <div class="icon-wrap icon-purple"><i class="fa-solid fa-envelope"></i></div>
+              <div>
+                <small data-es="Correo" data-en="Email">Correo</small>
+                <p><a href="mailto:omarperezcueva809@gmail.com">omarperezcueva809@gmail.com</a></p>
+              </div>
+            </li>
+            <li>
+              <div class="icon-wrap icon-amber"><i class="fa-solid fa-location-dot"></i></div>
+              <div>
+                <small data-es="Ubicación" data-en="Location">Ubicación</small>
+                <p>C. 25 Mz. V2 - Lt. 21</p>
+              </div>
+            </li>
+          </ul>
+
+          <a href="https://wa.me/51960860791?text=Hola%20Omar,%20revis%C3%A9%20tu%20CV%20ejecutivo%20y%20me%20gustar%C3%ADa%20agendar%20una%20reuni%C3%B3n." target="_blank" class="btn btn-whatsapp">
+            <i class="fa-brands fa-whatsapp"></i> Contactar por WhatsApp
+          </a>
+        </div>
+
+        <!-- Stack Tecnológico Empresarial -->
+        <div class="card">
+          <h3 class="card-title"><i class="fa-solid fa-layer-group"></i> Stack Tecnológico</h3>
+          <div class="skill-group">
+            <span class="skill-label">Lenguajes de Programación</span>
+            <div class="tags">
+              <span class="tag tag-java">Java</span>
+              <span class="tag tag-php">PHP</span>
+              <span class="tag tag-js">JavaScript</span>
+              <span class="tag tag-sql">SQL</span>
+              <span class="tag tag-python">Python</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <span class="skill-label">Frameworks & Backend</span>
+            <div class="tags">
+              <span class="tag tag-laravel">Laravel</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <span class="skill-label">Bases de Datos</span>
+            <div class="tags">
+              <span class="tag tag-mysql">MySQL</span>
+              <span class="tag tag-sqlserver">SQL Server</span>
+            </div>
+          </div>
+        </div>
+
+      </aside>
+
+      <!-- COLUMNA DERECHA -->
+      <section class="main-content">
+        
+        <!-- Perfil Profesional -->
+        <div class="card card-corp-border">
+          <h2 class="section-heading"><i class="fa-solid fa-user-tie"></i> Perfil Profesional</h2>
+          <p class="profile-text" data-es="Estudiante de Ingeniería de Software con IA en SENATI, cursando el 4.° semestre. Programador Backend con sólidos conocimientos en desarrollo de aplicaciones web dinámicas utilizando PHP, Laravel, Java, SQL y MySQL. Apasionado por la creación de soluciones eficientes, escalables y orientadas a la seguridad. Destacado por su alta responsabilidad, trabajo en equipo y capacidad de aprendizaje rápido ante nuevos desafíos tecnológicos." data-en="Student of Software Engineering with AI at SENATI, currently in the 4th semester. Backend Developer with solid knowledge in developing dynamic web applications using PHP, Laravel, Java, SQL, and MySQL. Passionate about creating efficient, scalable, and security-oriented solutions. Outstanding for high responsibility, teamwork, and fast learning ability under technological challenges.">
+            Estudiante de <strong>Ingeniería de Software con IA en SENATI</strong>, cursando el 4.° semestre. Programador Backend con sólidos conocimientos en desarrollo de aplicaciones web dinámicas utilizando <strong>PHP, Laravel, Java, SQL y MySQL</strong>. Apasionado por la creación de soluciones eficientes, escalables y orientadas a la seguridad. Destacado por su alta responsabilidad, trabajo en equipo y capacidad de aprendizaje rápido ante nuevos desafíos tecnológicos.
+          </p>
+        </div>
+
+        <!-- Formación Académica -->
+        <div class="card">
+          <div class="academic-header">
+            <h2 class="section-heading"><i class="fa-solid fa-graduation-cap"></i> Formación Académica</h2>
+            <span class="year-badge">2026</span>
+          </div>
+          <div class="academic-body">
+            <h3>SENATI</h3>
+            <p class="academic-sub">Ingeniería de Software con IA (4to Semestre - Nivel Intermedio)</p>
+            <ul class="academic-list">
+              <li><i class="fa-solid fa-circle-check"></i> Actualmente cursando el 4.º semestre académico.</li>
+              <li><i class="fa-solid fa-circle-check"></i> Formación especializada en desarrollo de software, gestión de bases de datos y desarrollo web.</li>
+              <li><i class="fa-solid fa-circle-check"></i> Aplicación práctica de programación orientada a objetos (POO) y arquitectura MVC.</li>
+              <li><i class="fa-solid fa-circle-check"></i> Desarrollo de proyectos integrales utilizando tecnologías Frontend y Backend.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Proyectos Destacados -->
+        <div class="card">
+          <h2 class="section-heading"><i class="fa-solid fa-diagram-project"></i> Proyectos Destacados</h2>
+          
+          <div class="filter-buttons">
+            <button class="filter-btn active" onclick="filterProjects('all', event)">Todos</button>
+            <button class="filter-btn" onclick="filterProjects('laravel', event)">PHP / Laravel</button>
+            <button class="filter-btn" onclick="filterProjects('java', event)">Java / POO</button>
+          </div>
+
+          <div class="projects-grid">
+            <div class="project-card" data-category="laravel" onclick="openProjectModal('matricula')">
+              <div class="project-header">
+                <h4>Sistema de Matrícula en Laravel</h4>
+                <span class="tech-badge">PHP / Laravel / MySQL</span>
+              </div>
+              <p>Desarrollo e implementación de una aplicación web completa utilizando arquitectura MVC, operaciones CRUD y base de datos MySQL.</p>
+              <span class="view-more">Ver detalles <i class="fa-solid fa-arrow-right-long"></i></span>
+            </div>
+
+            <div class="project-card" data-category="laravel" onclick="openProjectModal('login')">
+              <div class="project-header">
+                <h4>Sistema de Login y Registro</h4>
+                <span class="tech-badge">Backend & Seguridad</span>
+              </div>
+              <p>Diseño y codificación de un flujo de acceso seguro de usuarios con validación, sanitización de datos y sesiones avanzadas.</p>
+              <span class="view-more">Ver detalles <i class="fa-solid fa-arrow-right-long"></i></span>
+            </div>
+
+            <div class="project-card" data-category="java" onclick="openProjectModal('java')">
+              <div class="project-header">
+                <h4>Aplicaciones y Lógica en Java</h4>
+                <span class="tech-badge">POO / Java</span>
+              </div>
+              <p>Desarrollo de diversos proyectos y aplicaciones de escritorio aplicando Programación Orientada a Objetos (POO) y resolución de algoritmos.</p>
+              <span class="view-more">Ver detalles <i class="fa-solid fa-arrow-right-long"></i></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Certificaciones Profesionales -->
+        <div class="card">
+          <h2 class="section-heading"><i class="fa-solid fa-certificate"></i> Certificaciones Profesionales</h2>
+          <div class="certs-grid">
+            <div class="cert-card" onclick="openCertModal('Java Database Connectivity', 'Oracle Academy (2026)')">
+              <i class="fa-solid fa-database cert-icon cert-oracle"></i>
+              <div>
+                <strong>Java Database Connectivity</strong>
+                <p>Oracle Academy (2026)</p>
+              </div>
+            </div>
+
+            <div class="cert-card" onclick="openCertModal('Database Programming with SQL', 'Oracle Academy (2026)')">
+              <i class="fa-solid fa-database cert-icon cert-oracle"></i>
+              <div>
+                <strong>Database Programming with SQL</strong>
+                <p>Oracle Academy (2026)</p>
+              </div>
+            </div>
+
+            <div class="cert-card" onclick="openCertModal('Fundamentos de Python 1', 'Cisco Networking Academy (2026)')">
+              <i class="fa-brands fa-python cert-icon cert-cisco"></i>
+              <div>
+                <strong>Fundamentos de Python 1</strong>
+                <p>Cisco Networking Academy (2026)</p>
+              </div>
+            </div>
+
+            <div class="cert-card" onclick="openCertModal('Fundamentos de Python 2', 'Cisco Networking Academy (2026)')">
+              <i class="fa-brands fa-python cert-icon cert-cisco"></i>
+              <div>
+                <strong>Fundamentos de Python 2</strong>
+                <p>Cisco Networking Academy (2026)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DASHBOARD DE GRÁFICOS DINÁMICOS EN MOVIMIENTO -->
+        <div class="card chart-card-section">
+          <div class="chart-header-flex">
+            <div>
+              <h2 class="section-heading"><i class="fa-solid fa-chart-line"></i> Dashboard Interactivo de Competencias</h2>
+              <p class="chart-subtitle">Análisis cuantitativo con animaciones en vivo y dinámicas de simulación</p>
+            </div>
+            <span class="tag-status"><i class="fa-solid fa-bolt"></i> Live Metrics 2026</span>
+          </div>
+
+          <!-- KPI CARDS -->
+          <div class="kpi-grid">
+            <div class="kpi-card">
+              <span class="kpi-value">4.º</span>
+              <span class="kpi-label">Semestre SENATI</span>
+            </div>
+            <div class="kpi-card">
+              <span class="kpi-value">4+</span>
+              <span class="kpi-label">Certificaciones Oficiales</span>
+            </div>
+            <div class="kpi-card">
+              <span class="kpi-value">100%</span>
+              <span class="kpi-label">Enfoque Backend & MVC</span>
+            </div>
+          </div>
+
+          <!-- CONTROLES DE CAMBIO DE MODO DE GRÁFICO -->
+          <div class="chart-controls">
+            <button class="btn-chart-style active" onclick="setChartType('bar', event)">
+              <i class="fa-solid fa-chart-simple"></i> Barras Horizontales
+            </button>
+            <button class="btn-chart-style" onclick="setChartType('radar', event)">
+              <i class="fa-solid fa-compass"></i> Radar Tech / Matrix
+            </button>
+            <button class="btn-chart-style" onclick="setChartType('doughnut', event)">
+              <i class="fa-solid fa-chart-pie"></i> Donut Distribution
+            </button>
+            <button class="btn-chart-style btn-pulse-toggle" id="btn-toggle-pulse" onclick="togglePulse()">
+              <i class="fa-solid fa-wave-square"></i> Animación Ondulante: ON
+            </button>
+          </div>
+
+          <div class="chart-wrapper">
+            <canvas id="interactiveSkillsChart"></canvas>
+          </div>
+        </div>
+
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2026 Omar Benjamín Perez Cueva — Programador Backend & Ingeniería de Software IA</p>
+    </footer>
+
+  </div>
+
+  <!-- MODAL PROYECTOS -->
+  <div id="project-modal" class="modal-overlay" onclick="closeProjectModal(event)">
+    <div class="modal-content">
+      <span class="modal-close" onclick="closeProjectModal(null)">&times;</span>
+      <h3 id="modal-title">Título del Proyecto</h3>
+      <div id="modal-tech" class="tech-badge" style="margin-bottom:1rem;">Stack</div>
+      <p id="modal-desc" style="margin-bottom:1.5rem; color:var(--text-muted); line-height:1.6;"></p>
+      <a id="modal-github" href="https://github.com/oniarperez" target="_blank" class="btn btn-secondary">
+        <i class="fa-brands fa-github"></i> Explorar Código en GitHub
+      </a>
+    </div>
+  </div>
+
+  <!-- MODAL CERTIFICACIONES -->
+  <div id="cert-modal" class="modal-overlay" onclick="closeCertModal(event)">
+    <div class="modal-content" style="text-align:center;">
+      <span class="modal-close" onclick="closeCertModal(null)">&times;</span>
+      <h3 id="cert-title">Certificado</h3>
+      <p id="cert-issuer" style="color:var(--brand-cyan); font-weight:600; margin-bottom:1rem;"></p>
+      <div class="cert-preview-placeholder">
+        <i class="fa-solid fa-award" style="font-size:3.5rem; color:var(--brand-cyan); margin-bottom:0.5rem;"></i>
+        <p style="color:var(--text-muted); font-size:0.85rem;">Documentación Oficial Verificada</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast">¡Dirección de correo copiada!</div>
+
+  <!-- BOTÓN FLOTANTE WHATSAPP -->
+  <a href="https://wa.me/51960860791?text=Hola%20Omar,%20revis%C3%A9%20tu%20CV%20ejecutivo%20y%20me%20gustar%C3%ADa%20agendar%20una%20reuni%C3%B3n." 
+     target="_blank" 
+     class="whatsapp-float" 
+     aria-label="Contactar por WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>
